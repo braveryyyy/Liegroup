@@ -1,15 +1,13 @@
 function [Fk,Gammak] = etm_static_left(ins)
-% SINS Error Transition Matrix (see my PhD dissertation p39)
+% SINS Error Transition Matrix 
 %
 % Prototype: Ft = etm(ins)
 % Input: ins - SINS structrue array
 % Output: Ft - 15x15 error transition matrix
 %
-% See also  kffk, kfc2d, kfupdate, insupdate.
 
-% Copyright(c) 2009-2014, by Gongmin Yan, All rights reserved.
-% Northwestern Polytechnical University, Xi An, P.R.China
-% 27/08/2011, 02/02/2015
+
+
 	tl = ins.eth.tl; secl = 1/ins.eth.cl;
     f_RMh = 1/ins.eth.RMh; f_RNh = 1/ins.eth.RNh; f_clRNh = 1/ins.eth.clRNh;
     f_RMh2 = f_RMh*f_RMh;  f_RNh2 = f_RNh*f_RNh;
