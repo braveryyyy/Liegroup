@@ -9,11 +9,7 @@ function [kf, ins, xfb] = kffeedback(kf, ins, T_fb,eth, fbstr)
 % Outputs: kf, ins - Kalman filter & SINS structure array after feedback
 %          xfb - feedback state value
 %
-% See also  kfinit, kffk, kfhk, kfplot, psinstypedef.
 
-% Copyright(c) 2009-2014, by Gongmin Yan, All rights reserved.
-% Northwestern Polytechnical University, Xi An, P.R.China
-% 05/10/2013, 06/02/2021
     if nargin<4, fbstr=kf.fbstr; end
     if nargin<3, T_fb=1; end
     if kf.T_fb~=T_fb
