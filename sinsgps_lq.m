@@ -21,33 +21,10 @@ function [avp, xkpk, zkrk, sk, ins, kf,ins_new,count] = sinsgps_lq(imu, gps, ins
 %         Rmin - Rmin setting, Rmin<=0 for no adaptive KF, Rmin=0~1 scale for adaptive KF and Rmin = Rk*Rmin
 %         fbstr - KF feedback string from any combination of 'avpedLT'
 %         isfig - figure flag
-%
-% Example 1:
-%   [avp1, xkpk, zkrk, sk, ins1, kf1] = sinsgps(imu, gps, 300);
-%
-% Example 2:  RLG/FOG
-% ins = insinit([yaw;pos], ts);
-% avperr = avperrset([60;300], 1, 100);
-% imuerr = imuerrset(0.03, 100, 0.001, 1);
-% Pmin = [avperrset([0.1,1],0.001,0.01); gabias(0.001, [10,30]); [0.01;0.01;0.01]; 0.0001].^2;
-% Rmin = vperrset(0.001, 0.01).^2;
-% [avp1, xkpk, zkrk, sk, ins1, kf1] = sinsgps(imu, gps, ins, avperr, imuerr, [rep3(1);1;1], [0.01;1], vperrset(0.1,10), Pmin, Rmin, 'avp');
-%
-% Example 3:  FOG/MEMS
-% t0 = 1;  t1 = 916;
-% avp0 = getat(avp,t0);
-% ins = insinit(avp0, ts);
-% avperr = avperrset([60;300], 1, 10);
-% imuerr = imuerrset(0.5, 1000, 0.1, 25);
-% Pmin = [avperrset([0.2,1.0],0.01,0.2); gabias(0.01, [10,10]); [0.01;0.01;0.01]; 0.001].^2;
-% Rmin = vperrset(0.1, 0.3).^2;
-% [avp1, xkpk, zkrk, sk, ins1, kf] = sinsgps(imu(t0/ts:t1/ts,:), gps, ins, avperr, imuerr, rep3(1), 0.1, vperrset(0.1,10), Pmin, Rmin, 'avped');
-% 
-% See also  kfinit, kfupdate, imugpssyn, igsplot, insupdate, posprocessing.
 
-% Copyright(c) 2009-2021, by Gongmin Yan, All rights reserved.
-% Northwestern Polytechnical University, Xi An, P.R.China
-% 09/10/2013, 06/02/2021, 02/11/2021, 30/08/2022
+
+
+
 global glv
     [nn, ts, nts] = nnts(2, diff(imu(1:2,end)));
     clmgps = size(gps,2); SatNum = 20; DOP = 1.0;
