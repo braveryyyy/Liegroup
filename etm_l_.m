@@ -1,6 +1,5 @@
 function [Fk,Gammak] = etm_l_(ins)
-% SINS Error Transition Matrix (see my PhD dissertation p39)
-%
+% SINS Error Transition Matrix 
 % Prototype: Ft = etm(ins)
 % Input: ins - SINS structrue array
 % Output: Ft - 15x15 error transition matrix
