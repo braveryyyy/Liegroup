@@ -75,7 +75,7 @@ global glv
     kf.Pxk = diag([davp; imuerr.eb; imuerr.db; lever(1:3)*lever(4); dT(1)*dT(2)]*1.0)^2;   % 2021/11/2
     kf.Hk = zeros(length(rk),19);
     kf = kfinit0(kf, nts);
-    kf.lqmode='right';
+    kf.lqmode='right';  % left:left-invariant error model; right:right-invariant error model
     Gammak=kf.Gammak;
     Cgps=0;
     flag=0;
